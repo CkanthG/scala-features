@@ -2,10 +2,13 @@ import functionalprogramming.Closures.{makeCounter, makeMultiplier}
 import functionalprogramming.FirstClassFunctions.{addOne, addTwoIntegers, applyFunction, double}
 import functionalprogramming.HigherOrderFunctions.{findEvenOrOddNumbersInListByFilter, multiplyListElementsBy2UsingMap, squareOfNumbers}
 import functionalprogramming.ImmutableDataStructures.{immutableListOperations, immutableMapOperations}
+import functionalprogramming.OptionAndEither.{divide, optionAndEither}
 import functionalprogramming.PatternMatching.{matchingAgainstCaseClasses, patternMatchingWithLists}
 import functionalprogramming.TailRecursion.{accumulator, factorial}
-import functionalprogramming.User
-import objectoriented.{Employee, Person, Teacher}
+import functionalprogramming.TypeInference.typeInference
+import functionalprogramming.{Circle, Rectangle, Shape, Triangle, User}
+import objectoriented.inheritance.{Dog, Frog}
+import objectoriented.{AuthenticationService, Employee, MonardicOperation, Person, Restaurant, Teacher, Vector2D}
 
 object Welcome {
 
@@ -39,6 +42,63 @@ object Welcome {
     matchingAgainstCaseClasses(null)
     patternMatchingWithLists()
     println(s"*****Tail Recursion*****\nFactorial of 15: ${factorial(15)}\nAccumulation of 100: ${accumulator(2000)}")
+    println(s"*****Type Inference*****")
+    typeInference()
+    println(s"*****Algebraic Data Types*****")
+    val circle = Circle(radius = 5.0)
+    val rectangle = Rectangle(width = 10.0, height = 6.0)
+    val triangle = Triangle(base = 8.0, height = 4.0)
+    println(s"Circle Area:${calculateArea(circle)}\nRectangle Area:${calculateArea(rectangle)}\nTriangle Area:${calculateArea(triangle)}")
+    println("*****Option and Either*****")
+    optionAndEither()
+    val result1 = divide(10, 2)
+    val result2 = divide(10, 0)
+    println(s"$result1\n$result2")
+    println("*****Inheritance Example*****")
+    val dog = new Dog("Puppy")
+    dog.makeSound()
+    val frog = new Frog("Frog")
+    frog.swim()
+    frog.jump()
+    frog.makeNoise()
+    println("*****Class with mixin composition*****")
+    val authService = new AuthenticationService()
+    authService.login("admin", "1234")
+    authService.login("user", "password")
+    println("*****Abstract Class and Methods Implementation*****")
+    val restaurant = new Restaurant("Indian")
+    println(restaurant.prepareFood())
+    println("*****Operator overloading and custom operators*****")
+    val v1 = new Vector2D(3.0, 4.0)
+    val v2 = new Vector2D(1.0, 2.0)
+    val sum = v1 + v2
+    println("Sum: " + sum)
+    val difference = v1 - v2
+    println("Difference: " + difference)
+    val multiplyAndAdd = v1 * v2
+    println("Multiply And Add: " + multiplyAndAdd)
+    println("*****For-comprehensions for monadic operations*****")
+    val mo = new MonardicOperation()
+    mo.monardicOperation()
+    mo.monardicListOperation()
+    println("XML literals for writing XML directly in code")
+    val name = "Sreekanth"
+    val age = 33
+    val xml = <person>
+      <name>
+        {name}
+      </name>
+      <age>
+        {age}
+      </age>
+    </person>
+    println(xml)
+  }
+
+  private def calculateArea(shape: Shape): Double = shape match {
+    case Circle(radius) => Math.PI * radius * radius
+    case Rectangle(width, height) => width * height
+    case Triangle(base, height) => 0.5 * base * height
   }
 
 }

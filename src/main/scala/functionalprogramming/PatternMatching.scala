@@ -16,6 +16,5 @@ object PatternMatching {
     }
     println(description)
   }
-}
 
-case class User(name: String, age: Int)
+}
