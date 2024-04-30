@@ -81,18 +81,18 @@ object Welcome {
     val mo = new MonardicOperation()
     mo.monardicOperation()
     mo.monardicListOperation()
-    println("XML literals for writing XML directly in code")
-    val name = "Sreekanth"
-    val age = 33
-    val xml = <person>
-      <name>
-        {name}
-      </name>
-      <age>
-        {age}
-      </age>
-    </person>
-    println(xml)
+//    println("XML literals for writing XML directly in code")
+//    val name = "Sreekanth"
+//    val age = 33
+//    val xml = <person>
+//      <name>
+//        {name}
+//      </name>
+//      <age>
+//        {age}
+//      </age>
+//    </person>
+//    println(xml)
   }
 
   private def calculateArea(shape: Shape): Double = shape match {
